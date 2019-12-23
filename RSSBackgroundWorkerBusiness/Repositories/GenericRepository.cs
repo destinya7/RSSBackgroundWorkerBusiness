@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using RSSBackgroundWorkerBusiness.DAL;
+using RSSBackgroundWorkerBusiness.Models;
 
 namespace RSSBackgroundWorkerBusiness.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseModel
     {
         private RSSContext _context = null;
         private DbSet<T> _table = null;
@@ -28,11 +30,14 @@ namespace RSSBackgroundWorkerBusiness.Repositories
 
         public void Insert(T obj)
         {
+            obj.DateCreated = DateTime.Now;
+            obj.DateModified = DateTime.Now;
             _table.Add(obj);
         }
 
         public void Update(T obj)
         {
+            obj.DateModified = DateTime.Now;
             _table.Attach(obj);
             _context.Entry(obj).State = EntityState.Modified;
         }
