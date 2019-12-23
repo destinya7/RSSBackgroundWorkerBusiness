@@ -3,7 +3,8 @@ using RSSBackgroundWorkerBusiness.Models;
 
 namespace RSSBackgroundWorkerBusiness.Repositories
 {
-    public class ChannelRepository : GenericRepository<Channel>, IChannelRepository
+    public class ChannelRepository : GenericRepository<RSSContext, Channel>,
+                                     IChannelRepository
     {
         public ChannelRepository(RSSContext context) : base(context)
         {
