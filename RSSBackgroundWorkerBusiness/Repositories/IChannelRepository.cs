@@ -1,10 +1,11 @@
 ﻿using RSSBackgroundWorkerBusiness.Models;
+using System.Threading.Tasks;
 
 namespace RSSBackgroundWorkerBusiness.Repositories
 {
     public interface IChannelRepository
         : IGenericRepository<Channel>
     {
-        Channel GetChannelByURL(string url);
+        Task<Channel> GetChannelByURL(string url);
     }
 }

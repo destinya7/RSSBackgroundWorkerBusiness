@@ -1,4 +1,7 @@
-﻿using RSSBackgroundWorkerBusiness.DAL;
+﻿using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+using RSSBackgroundWorkerBusiness.DAL;
 using RSSBackgroundWorkerBusiness.Models;
 
 namespace RSSBackgroundWorkerBusiness.Repositories
@@ -10,9 +13,9 @@ namespace RSSBackgroundWorkerBusiness.Repositories
         {
         }
 
-        public Channel GetChannelByURL(string url)
+        public Task<Channel> GetChannelByURL(string url)
         {
-            throw new System.NotImplementedException();
+            return Table.FirstOrDefaultAsync(t => t.Link == url);
         }
     }
 }
