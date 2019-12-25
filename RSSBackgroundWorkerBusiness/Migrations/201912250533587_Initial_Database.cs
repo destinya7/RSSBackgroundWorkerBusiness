@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialDatabase : DbMigration
+    public partial class Initial_Database : DbMigration
     {
         public override void Up()
         {
@@ -16,13 +16,13 @@
                         Description = c.String(),
                         Link = c.String(),
                         PubDate = c.DateTime(nullable: false),
+                        ChannelId = c.Int(nullable: false),
                         DateCreated = c.DateTime(nullable: false),
                         DateModified = c.DateTime(nullable: false),
-                        Channel_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Channel", t => t.Channel_Id)
-                .Index(t => t.Channel_Id);
+                .ForeignKey("dbo.Channel", t => t.ChannelId, cascadeDelete: true)
+                .Index(t => t.ChannelId);
             
             CreateTable(
                 "dbo.Channel",
@@ -43,8 +43,8 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.Article", "Channel_Id", "dbo.Channel");
-            DropIndex("dbo.Article", new[] { "Channel_Id" });
+            DropForeignKey("dbo.Article", "ChannelId", "dbo.Channel");
+            DropIndex("dbo.Article", new[] { "ChannelId" });
             DropTable("dbo.Channel");
             DropTable("dbo.Article");
         }
