@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +30,16 @@ namespace RSSBackgroundWorkerBusiness.Repositories
         public Task<Channel> GetChannelByURL(string url)
         {
             return Table.FirstOrDefaultAsync(t => t.RSS_URL == url);
+        }
+
+        public Task<List<Channel>> GetChannelsLastUpdatedWithin(
+            double minutes
+        )
+        {
+            return Table.Where(c => 
+                    DateTime.Now.Subtract(c.DateModified) > 
+                    TimeSpan.FromMinutes(minutes))
+                .ToListAsync();
         }
     }
 }

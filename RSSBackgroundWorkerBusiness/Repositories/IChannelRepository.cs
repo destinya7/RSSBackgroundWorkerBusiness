@@ -1,5 +1,6 @@
-﻿using RSSBackgroundWorkerBusiness.Models;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using RSSBackgroundWorkerBusiness.Models;
 
 namespace RSSBackgroundWorkerBusiness.Repositories
 {
@@ -7,5 +8,7 @@ namespace RSSBackgroundWorkerBusiness.Repositories
         : IGenericRepository<Channel>
     {
         Task<Channel> GetChannelByURL(string url);
+
+        Task<List<Channel>> GetChannelsLastUpdatedWithin(double minutes);
     }
 }
