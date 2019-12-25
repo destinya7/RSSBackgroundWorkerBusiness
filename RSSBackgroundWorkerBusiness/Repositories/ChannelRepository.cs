@@ -26,15 +26,6 @@ namespace RSSBackgroundWorkerBusiness.Repositories
             Table.Add(channel);
         }
 
-        public override void Update(Channel channel)
-        {
-            channel.DateModified = DateTime.Now;
-            channel.Articles.ForEach(a =>
-            {
-                a.DateModified = DateTime.Now;
-            });
-        }
-
         public Task<Channel> GetChannelByURL(string url)
         {
             return Table.FirstOrDefaultAsync(t => t.RSS_URL == url);
