@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using RSSBackgroundWorkerBusiness.DAL;
@@ -11,6 +12,18 @@ namespace RSSBackgroundWorkerBusiness.Repositories
     {
         public ChannelRepository(RSSContext context) : base(context)
         {
+        }
+
+        public override void Insert(Channel channel)
+        {
+            channel.DateCreated = DateTime.Now;
+            channel.DateModified = DateTime.Now;
+            channel.Articles.ForEach(a =>
+            {
+                a.DateCreated = DateTime.Now;
+                a.DateModified = DateTime.Now;
+            });
+            Table.Add(channel);
         }
 
         public Task<Channel> GetChannelByURL(string url)
