@@ -5,6 +5,8 @@ namespace RSSBackgroundWorkerBusiness.Models
 {
     public class Channel : BaseModel
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public string Link { get; set; }
