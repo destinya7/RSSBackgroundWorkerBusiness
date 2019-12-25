@@ -29,21 +29,21 @@ namespace RSSBackgroundWorkerBusiness.Repositories
             return Table.FindAsync(id);
         }
 
-        public void Insert(TEntity obj)
+        public virtual void Insert(TEntity obj)
         {
             obj.DateCreated = DateTime.Now;
             obj.DateModified = DateTime.Now;
             Table.Add(obj);
         }
 
-        public void Update(TEntity obj)
+        public virtual void Update(TEntity obj)
         {
             obj.DateModified = DateTime.Now;
             Table.Attach(obj);
             _context.Entry(obj).State = EntityState.Modified;
         }
 
-        public async void Delete(object id)
+        public async virtual void Delete(object id)
         {
             TEntity existing = await Table.FindAsync(id);
             Table.Remove(existing);
