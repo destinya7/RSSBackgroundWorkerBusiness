@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201912250533587_Initial_Database.designer.cs">
       <DependentUpon>201912250533587_Initial_Database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912250659206_Add_RSS_URL.cs" />
+    <Compile Include="Migrations\201912250659206_Add_RSS_URL.designer.cs">
+      <DependentUpon>201912250659206_Add_RSS_URL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\ArticleRepository.cs" />
     <Compile Include="Repositories\ChannelRepository.cs" />
     <Compile Include="DAL\RSSContext.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912250533587_Initial_Database.resx">
       <DependentUpon>201912250533587_Initial_Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912250659206_Add_RSS_URL.resx">
+      <DependentUpon>201912250659206_Add_RSS_URL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

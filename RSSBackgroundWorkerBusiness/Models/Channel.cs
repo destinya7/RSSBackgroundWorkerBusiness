@@ -9,6 +9,8 @@ namespace RSSBackgroundWorkerBusiness.Models
 
         public string Title { get; set; }
 
+        public string RSS_URL { get; set; }
+
         public string Link { get; set; }
 
         public string Description { get; set; }
