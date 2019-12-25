@@ -1,4 +1,6 @@
-﻿using RSSBackgroundWorkerBusiness.DAL;
+﻿using System.Data.Entity;
+using System.Threading.Tasks;
+using RSSBackgroundWorkerBusiness.DAL;
 using RSSBackgroundWorkerBusiness.Models;
 
 namespace RSSBackgroundWorkerBusiness.Repositories
@@ -8,6 +10,11 @@ namespace RSSBackgroundWorkerBusiness.Repositories
     {
         public ArticleRepository(RSSContext context) : base(context)
         {
+        }
+
+        public Task<Article> GetArticleByURL(string url)
+        {
+            return Table.FirstOrDefaultAsync(a => a.Link == url);
         }
     }
 }
