@@ -28,7 +28,7 @@ namespace RSSBackgroundWorkerBusiness.Repositories
 
         public Task<Channel> GetChannelByURL(string url)
         {
-            return Table.FirstOrDefaultAsync(t => t.Link == url);
+            return Table.FirstOrDefaultAsync(t => t.RSS_URL == url);
         }
     }
 }
