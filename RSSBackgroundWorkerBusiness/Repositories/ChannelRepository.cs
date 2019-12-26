@@ -36,9 +36,10 @@ namespace RSSBackgroundWorkerBusiness.Repositories
             double minutes
         )
         {
-            return Table.Where(c => 
-                    DateTime.Now.Subtract(c.DateModified) > 
-                    TimeSpan.FromMinutes(minutes))
+            DateTime referenceDate = DateTime.Now.AddMinutes(minutes * -1);
+
+            return Table.Where(c =>
+                    c.DateModified <= referenceDate)
                 .ToListAsync();
         }
     }
