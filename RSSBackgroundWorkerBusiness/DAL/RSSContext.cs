@@ -6,7 +6,7 @@ namespace RSSBackgroundWorkerBusiness.DAL
 {
     public class RSSContext : DbContext
     {
-        public RSSContext() : base("RSSContext")
+        public RSSContext() : base("RSS_CONN_DEFAULT")
         {
         }
 
