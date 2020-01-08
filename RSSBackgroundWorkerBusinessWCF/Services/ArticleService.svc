@@ -1,0 +1,4 @@
+﻿<%@ ServiceHost Language="C#" Debug="true"
+    Service="RSSBackgroundWorkerBusinessWCF.Services.ArticleService, RSSBackgroundWorkerBusinessWCF"
+    Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf"
+    CodeBehind="ArticleService.svc.cs" %>
