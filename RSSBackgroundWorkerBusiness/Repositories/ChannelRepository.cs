@@ -19,11 +19,15 @@ namespace RSSBackgroundWorkerBusiness.Repositories
         {
             channel.DateCreated = DateTime.Now;
             channel.DateModified = DateTime.Now;
-            channel.Articles.ForEach(a =>
+
+            if (channel.Articles != null)
             {
-                a.DateCreated = DateTime.Now;
-                a.DateModified = DateTime.Now;
-            });
+                channel.Articles.ForEach(a =>
+                {
+                    a.DateCreated = DateTime.Now;
+                    a.DateModified = DateTime.Now;
+                });
+            }
             Table.Add(channel);
         }
 
