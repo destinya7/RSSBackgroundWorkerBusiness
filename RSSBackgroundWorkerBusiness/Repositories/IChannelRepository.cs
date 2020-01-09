@@ -1,14 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using RSSBackgroundWorkerBusiness.Models;
+using System.Linq;
 using System.Threading.Tasks;
-using RSSBackgroundWorkerBusiness.Models;
 
 namespace RSSBackgroundWorkerBusiness.Repositories
 {
     public interface IChannelRepository
-        : IGenericRepository<Channel>
     {
-        Task<Channel> GetChannelByURL(string url);
+        IQueryable<Channel> GetAll();
 
-        Task<List<Channel>> GetChannelsLastUpdatedWithin(double minutes);
+        Task<Channel> GetByUrl(string url);
+
+        Task<Channel> Get(object id);
+
+        IQueryable<Channel> GetChannelsLastUpdatedWithin(double minutes);
+
+        Task<RepositoryActionResult<Channel>> Add(Channel channel);
+
+        Task<RepositoryActionResult<Channel>> Update(Channel channel);
+
+        Task<RepositoryActionResult<Channel>> Delete(Channel channel);
+
+        Task<RepositoryActionResult<Channel>> Delete(string url);
     }
 }

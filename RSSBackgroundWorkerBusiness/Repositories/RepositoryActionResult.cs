@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RSSBackgroundWorkerBusiness.Repository
+namespace RSSBackgroundWorkerBusiness.Repositories
 {
     public class RepositoryActionResult<T> where T : class
     {

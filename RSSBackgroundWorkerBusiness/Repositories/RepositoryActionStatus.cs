@@ -1,4 +1,4 @@
-﻿namespace RSSBackgroundWorkerBusiness.Repository
+﻿namespace RSSBackgroundWorkerBusiness.Repositories
 {
     public enum RepositoryActionStatus
     {

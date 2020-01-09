@@ -1,4 +1,4 @@
-﻿using RSSBackgroundWorkerBusiness.Repository;
+﻿using RSSBackgroundWorkerBusiness.Repositories;
 using RSSBackgroundWorkerBusinessWCF.Factories;
 using RSSBackgroundWorkerBusinessWCF.Messages;
 using RSSBackgroundWorkerBusinessWCF.Utilities;
@@ -36,11 +36,11 @@ namespace RSSBackgroundWorkerBusinessWCF.Services
             }
         }
 
-        public Channel GetChannel(string url)
+        public async Task<Channel> GetChannel(string url)
         {
             try
             {
-                var channel = _repo.GetByUrl(url);
+                var channel = await _repo.GetByUrl(url);
 
                 if (channel != null)
                 {

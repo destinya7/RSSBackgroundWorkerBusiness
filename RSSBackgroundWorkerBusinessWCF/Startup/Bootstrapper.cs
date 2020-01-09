@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using RSSBackgroundWorkerBusiness.DAL;
-using RSSBackgroundWorkerBusiness.Repository;
+using RSSBackgroundWorkerBusiness.Repositories;
 using RSSBackgroundWorkerBusinessWCF.Factories;
 using RSSBackgroundWorkerBusinessWCF.Services;
 

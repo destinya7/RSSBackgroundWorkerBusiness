@@ -1,4 +1,4 @@
-﻿using RSSBackgroundWorkerBusiness.Repository;
+﻿using RSSBackgroundWorkerBusiness.Repositories;
 using RSSBackgroundWorkerBusinessWCF.Messages;
 using System;
 using System.Collections.Generic;

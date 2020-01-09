@@ -12,7 +12,7 @@ namespace RSSBackgroundWorkerBusinessWCF.Services
         IEnumerable<Channel> GetChannels();
 
         [OperationContract]
-        Channel GetChannel(string url);
+        Task<Channel> GetChannel(string url);
 
         [OperationContract]
         Task<ChannelMessage> AddChannel(Channel channel);
