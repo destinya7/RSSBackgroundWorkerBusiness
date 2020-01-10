@@ -46,10 +46,8 @@ namespace RSSBackgroundWorkerBusiness.Repositories
         {
             try
             {
-                channel.DateCreated = DateTime.UtcNow;
-                channel.DateModified = DateTime.UtcNow;
-
-                _context.Channels.Add(channel);
+                channel.DateCreated = DateTime.Now;
+                channel.DateModified = DateTime.Now;
 
                 if (channel.Articles != null)
                 {
@@ -59,6 +57,7 @@ namespace RSSBackgroundWorkerBusiness.Repositories
                         a.DateModified = DateTime.Now;
                     });
                 }
+                _context.Channels.Add(channel);
 
                 var result = await _context.SaveChangesAsync();
 
