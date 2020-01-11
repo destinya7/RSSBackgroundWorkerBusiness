@@ -24,7 +24,9 @@ namespace RSSBackgroundWorkerBusiness.Repositories
 
         public Task<Channel> GetByUrl(string url)
         {
-            return _context.Channels.FirstOrDefaultAsync(c => c.RSS_URL == url);
+            return _context.Channels
+                .Include(c => c.Articles)
+                .FirstOrDefaultAsync(c => c.RSS_URL == url);
         }
 
         public Task<Channel> Get(object id)

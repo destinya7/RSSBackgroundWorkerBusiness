@@ -25,7 +25,10 @@ namespace RSSBackgroundWorkerBusinessWCF.Factories
                 {
                     URL = channel.ChannelImage?.URL,
                     Title = channel.ChannelImage?.Title
-                }
+                },
+                Articles = channel.Articles != null
+                    ? channel.Articles.Select(a => _articleFactory.CreateArticle(a)).ToList()
+                    : new List<Article>()
             };
         }
 
@@ -42,7 +45,10 @@ namespace RSSBackgroundWorkerBusinessWCF.Factories
                 {
                     URL = channel.ChannelImage?.URL,
                     Title = channel.ChannelImage?.Title
-                }
+                },
+                Articles = channel.Articles != null
+                    ? channel.Articles.Select(a => _articleFactory.CreateArticle(a)).ToList()
+                    : new List<RSSBackgroundWorkerBusiness.Models.Article>()
             };
         }
     }
