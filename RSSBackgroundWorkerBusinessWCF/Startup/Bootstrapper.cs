@@ -15,6 +15,8 @@ namespace RSSBackgroundWorkerBusinessWCF.Startup
             builder.RegisterType<RSSContext>().AsSelf();
             builder.RegisterType<ChannelRepository>()
                 .As<IChannelRepository>();
+            builder.RegisterType<ArticleRepository>()
+                .As<IArticleRepository>();
 
             builder.RegisterType<ChannelFactory>()
                 .As<IChannelFactory>();
